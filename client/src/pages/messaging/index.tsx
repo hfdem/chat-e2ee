@@ -98,12 +98,12 @@ const Chat = () => {
     e.preventDefault();
 
     if (isEmptyMessage(text)) {
-      alert("Please enter your message!");
+      alert("请输入您的消息！");
       return;
     }
 
     if (!chate2ee.isEncrypted()) {
-      alert("No one is in chat!");
+      alert("聊天室中没有人！");
       return;
     }
 
@@ -184,7 +184,7 @@ const Chat = () => {
         setMessages((prevMsg) =>
           prevMsg.concat({
             image: "",
-            body: `Sorry, can't be used by more than two users. Check if the link is open on other tab`,
+            body: `对不起，无法被超过两个用户使用。请检查链接是否在其他标签页中打开。`,
             sender: ""
           })
         );
@@ -307,7 +307,7 @@ const Chat = () => {
     return (
       <div className={styles.messageContainer}>
         <div className={`${styles.messageBlock} ${!darkMode && styles.lightModeContainer}`}>
-          <p>This link is no longer active</p>
+          <p>此链接已不再有效</p>
         </div>
       </div>
     );

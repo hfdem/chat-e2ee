@@ -27,12 +27,12 @@ const LinkDisplay: React.FC<{ content: LinkObjType }> = ({ content }) => {
   return (
     <div className={styles.fullWidth}>
       <div className={styles.divider} />
-      <span className={styles.pinDisplayMsg}>Anyone with the Link can join your chat</span>
+      <span className={styles.pinDisplayMsg}>任何拥有链接的人都可以加入您的聊天</span>
       <div
         className={`${styles.copyToClipboardContainer}
         ${!darkMode && styles.lightModeContainer}`}
       >
-        <span className={styles.labelLinkTextArea}>Share chat link: </span>
+        <span className={styles.labelLinkTextArea}>分享聊天链接： </span>
         <FiLink className={styles.linkIcon} />
         <div className={styles.textAreaContainer}>
           <input
@@ -75,7 +75,7 @@ const LinkDisplay: React.FC<{ content: LinkObjType }> = ({ content }) => {
       ${darkMode ? styles.darkOpenLink : styles.lightOpenLink}`}
       >
         <a href={`${chatLink}`} target="_blank" rel="noopener noreferrer">
-          Open chat <FiExternalLink />
+          打开链接 <FiExternalLink />
         </a>
       </div>
       {showQR && (

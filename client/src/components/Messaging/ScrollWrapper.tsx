@@ -57,7 +57,7 @@ export const ScrollWrapper = ({ children, messageCount }: ScrollWrapperProps) =>
       {children}
       {showPopup && (
         <div className={styles.popup} onClick={scrollToBottom}>
-          New Messages
+          新消息
         </div>
       )}
     </div>

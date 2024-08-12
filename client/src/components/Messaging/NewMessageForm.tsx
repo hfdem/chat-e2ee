@@ -64,7 +64,7 @@ export const NewMessageForm = ({
             className={`${styles.sendMessageInput} ${!darkMode && styles.lightMessageInput}`}
             type="text"
             name="input_text"
-            placeholder="Write message"
+            placeholder="请输入消息"
             onChange={(e) => setText(e.target.value)}
             value={text}
             autoComplete="off"
@@ -96,7 +96,7 @@ export const NewMessageForm = ({
               role="button"
               onClick={wrapperHandler}
             >
-              Send
+              发送
             </div>
           </div>
         </div>

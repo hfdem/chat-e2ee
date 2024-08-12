@@ -65,28 +65,28 @@ export const Message = ({
     <div className={messageClass}>
       <div className={styles.messageInfo}>
         <div className={styles.sentReceived}>
-          You {owner ? "sent" : "received"}
+          你 {owner ? "发送" : "收到"}
         </div>
         <div className={`${styles.messageContainer} ${!darkMode && styles.lightModeContainer}`}>
           {image && <Image src={image} maxWidth="300px" maxHeight="300px" />}
           {body}
           {timestamp && (
             <span className={styles.timestamp}>
-              {(owner ? "sent at " : "received at ") +
+              {(owner ? "发送自 " : "接收于 ") +
                 new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
             </span>
           )}
         </div>
         {failed && !sending && (
           <div className={styles.messageError}>
-            Failed to send message
+            信息发送失败
             <div className={styles.messageRetry} onClick={sendMessage}>
-              Try again
+              重试
             </div>
           </div>
         )}
         {id !== undefined && deliveredID?.includes(id) && (
-          <div className={styles.messageDelivered}>Delivered&nbsp;&#10004;</div>
+          <div className={styles.messageDelivered}>已送达&nbsp;&#10004;</div>
         )}
       </div>
     </div>

@@ -6,7 +6,7 @@ const DeleteChatLink = ({ handleDeleteLink }: any) => {
   const [darkMode] = useContext(ThemeContext);
 
   const deleteHandler = async () => {
-    if (window.confirm("Delete chat link forever?")) await handleDeleteLink();
+    if (window.confirm("想要永久销毁链接吗?")) await handleDeleteLink();
   };
 
   return (
@@ -16,7 +16,7 @@ const DeleteChatLink = ({ handleDeleteLink }: any) => {
         role="button"
         onClick={deleteHandler}
       >
-        Delete
+        销毁链接
       </div>
     </div>
   );

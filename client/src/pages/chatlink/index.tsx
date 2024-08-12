@@ -38,20 +38,19 @@ const App = () => {
           className={`${styles.header}
           ${darkMode === true ? styles.darkModeHeader : styles.lightModeHeader}`}
         >
-          🔐 Disposable e2ee-chat
+          🔐 一次性端到端加密聊天
           <ThemeToggle />
         </div>
         <div className={`${styles.sectionDefault} ${!darkMode && styles.sectionDefaultLight}`}>
           <div className={styles.title}>
-            Secure, end-to-end encrypted environment for exchanging sensitive information with peer.
+          安全的端到端加密环境，用于交换敏感信息。
           </div>
           <div className={styles.description}>
             <ul>
-              <li>No login/ signup required.</li>
-              <li>No tracker</li>
+              <li>无需登录/注册</li>
+              <li>无跟踪器</li>
               <li>
-                Your messages are <b>end-to-end</b> encrypted - technically impossible to read your
-                messages by someone else.
+                您的消息是<b>端到端加密</b>的 —— 从技术上讲，其他人无法读取您的消息
               </li>
             </ul>
           </div>
@@ -59,7 +58,7 @@ const App = () => {
             <div className={styles.linkGenerationBtnContainer}>
               <br />
               <Button
-                label={loading?"Creating...":"Create chat link"}
+                label={loading?"创建中":"创建聊天链接"}
                 type="primary"
                 onClick={generateLink}
                 disabled={loading}
@@ -78,7 +77,7 @@ const App = () => {
           }`}
         >
           <div className={styles.title}>
-            ❤️ The source-code is public on&nbsp;
+            ❤️&nbsp;源代码在&nbsp;
             <a
               href="https://github.com/muke1908/chat-e2ee"
               target="_blank"
@@ -86,7 +85,13 @@ const App = () => {
             >
               Github
             </a>
-            , feel free to contribute!
+            &nbsp;上公开, 欢迎贡献！&nbsp;你也可以查看&nbsp;<a
+              href="https://github.com/hfdem/chat-e2ee"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              我的仓库
+            </a>。
           </div>
         </div>
       </div>

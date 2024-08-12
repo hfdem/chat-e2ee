@@ -29,11 +29,11 @@ export const UserStatusInfo = ({
     <div className={styles.userInfo}>
       {online ? (
         <span className={styles.userInfoOnline}>
-          Alice {"<"}Online{">"}
+          Alice {"<"}在线{">"}
         </span>
       ) : (
         <div className={styles.userOnlineWaiting}>
-          Waiting for Alice to join...
+          等待 Alice 加入...
           <img
             className={
               loading ? `${styles.retryImageIcon} ${styles.loading}` : `${styles.retryImageIcon}`

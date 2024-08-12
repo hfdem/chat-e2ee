@@ -22,7 +22,7 @@ const LinkSharingInstruction = ({ online, link, pin, darkMode }: LinkSharingInst
 
   return (
     <div className={style.linkSharingInstruction}>
-      <div>Send this link to who you want to chat with</div>
+      <div>将此链接发送给您想要聊天的人</div>
       <input
         ref={inputRef}
         onClick={clickHandler}
