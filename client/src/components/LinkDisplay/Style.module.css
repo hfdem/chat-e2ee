@@ -1,5 +1,6 @@
 .copyToClipboardContainer {
   color: #fff;
+  font-family: monospace;
   display: flex;
   padding: 2px;
   flex: 1;
