@@ -42,7 +42,6 @@
     "@types/jest": "^29.5.12",
     "@types/node": "^22.2.0",
     "@types/node-fetch": "^2.6.11",
-    "@types/socket.io": "^3.0.2",
     "concurrently": "^8.2.2",
     "eslint": "^9.9.0",
     "eslint-config-prettier": "^9.1.0",
