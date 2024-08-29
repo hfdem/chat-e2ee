@@ -65,6 +65,7 @@
 
 .copyIcon {
   font-size: '15px';
+  transform: translateY(2px);
 }
 
 .textAreaContainer {

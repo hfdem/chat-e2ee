@@ -1,4 +1,4 @@
-import React, { useRef, useState, useContext } from "react";
+import React, { useRef, useState, useContext, useCallback } from "react";
 import { FiLink, FiCopy, FiExternalLink, FiArrowDown, FiArrowUp } from "react-icons/fi";
 import styles from "./Style.module.css";
 import { ThemeContext } from "../../ThemeContext";
@@ -10,18 +10,29 @@ const LinkDisplay: React.FC<{ content: LinkObjType }> = ({ content }) => {
     content.absoluteLink ||
     `${window.location.protocol}//${window.location.host}/chat/${content.hash}`;
   const textAreaRef = useRef<HTMLInputElement | null>(null);
+  const timerRef = useRef(null);
   const [buttonText, setButtonText] = useState("Copy");
   const [showQR, setShowQR] = useState(false);
   const [darkMode] = useContext(ThemeContext);
 
-  const copyCodeToClipboard = () => {
-    if (textAreaRef.current !== null) textAreaRef.current.select();
-    document.execCommand("copy");
-    setButtonText("Copied");
-  };
+  const copyCodeToClipboard = useCallback(() => {
+    if (textAreaRef.current) {
+      const textArea = textAreaRef.current;
+      textAreaRef.current.select();
+      navigator.clipboard.writeText(textAreaRef.current.value);
+      setButtonText("Copied");
+      
+      if (timerRef.current) clearTimeout(timerRef.current);
+      
+      timerRef.current = setTimeout(() => {
+        setButtonText("Copy");
+        timerRef.current = null;
+      }, 500);
+    }
+  }, []);
 
   const selectText = () => {
-    if (textAreaRef.current !== null) textAreaRef.current.select();
+    if (textAreaRef.current) textAreaRef.current.select();
   };
 
   return (
