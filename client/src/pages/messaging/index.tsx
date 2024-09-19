@@ -10,7 +10,7 @@ import LinkSharingInstruction from '../../components/Messaging/LinkSharingInstru
 import Notification from '../../components/Notification';
 import notificationAudio from '../../components/Notification/audio.mp3';
 import { ThemeContext } from '../../ThemeContext';
-import { LS, SS } from '../../utils/storage';
+import { SS } from '../../utils/storage';
 import {
     getKeyPairFromCache, getUserSessionID, isEmptyMessage, storeKeyPair, storeUserSessionID
 } from './helpers';

@@ -18,8 +18,8 @@ const LinkDisplay: React.FC<{ content: LinkObjType }> = ({ content }) => {
   const copyCodeToClipboard = useCallback(() => {
     if (textAreaRef.current) {
       const textArea = textAreaRef.current;
-      textAreaRef.current.select();
-      navigator.clipboard.writeText(textAreaRef.current.value);
+      textArea.select();
+      navigator.clipboard.writeText(textArea.value);
       setButtonText("Copied");
       
       if (timerRef.current) clearTimeout(timerRef.current);
