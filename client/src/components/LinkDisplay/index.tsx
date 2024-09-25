@@ -1,9 +1,11 @@
-import React, { useRef, useState, useContext, useCallback } from "react";
-import { FiLink, FiCopy, FiExternalLink, FiArrowDown, FiArrowUp } from "react-icons/fi";
+import React, { useRef, useState, useContext, useEffect, useCallback } from "react";
+import { FiLink, FiCopy, FiExternalLink } from "react-icons/fi";
+import { MdOutlineQrCode } from "react-icons/md";
 import styles from "./Style.module.css";
 import { ThemeContext } from "../../ThemeContext";
 import { LinkObjType } from "@chat-e2ee/service";
-import { QRCodeSVG } from 'qrcode.react';
+import { QRCodeSVG } from "qrcode.react";
+import detectMobile from "../../utils/detectMobile";
 
 const LinkDisplay: React.FC<{ content: LinkObjType }> = ({ content }) => {
   const chatLink =
@@ -14,6 +16,11 @@ const LinkDisplay: React.FC<{ content: LinkObjType }> = ({ content }) => {
   const [buttonText, setButtonText] = useState("Copy");
   const [showQR, setShowQR] = useState(false);
   const [darkMode] = useContext(ThemeContext);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(detectMobile());
+  }, []);
 
   const copyCodeToClipboard = useCallback(() => {
     if (textAreaRef.current) {
@@ -61,22 +68,16 @@ const LinkDisplay: React.FC<{ content: LinkObjType }> = ({ content }) => {
             ${!darkMode && styles.lightModeButton}`}
             onClick={copyCodeToClipboard}
           >
-            <FiCopy className={styles.copyIcon} /> {buttonText}
+            <FiCopy className={styles.copyIcon} /> {!isMobile && buttonText}
           </button>
           <button
             type="button"
             className={`${styles.qrButton} ${!darkMode && styles.lightModeButton}`}
             onClick={() => setShowQR(!showQR)}
           >
-            {showQR ? (
-              <div className={styles.QrCodeContent}>
-                QR Code <FiArrowUp className={styles.qrIcon} />
-              </div>
-            ) : (
-              <div className={styles.QrCodeContent}>
-                QR Code <FiArrowDown className={styles.qrIcon} />
-              </div>
-            )}
+            <div className={styles.QrCodeContent}>
+              <MdOutlineQrCode className={styles.qrIcon} /> {!isMobile && "QR Code"}
+            </div>
           </button>
         </div>
       </div>
