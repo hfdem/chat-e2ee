@@ -8,7 +8,7 @@
   "types": "dist/types/sdk.d.ts",
   "devDependencies": {
     "ts-loader": "^9.5.1",
-    "webpack": "^5.94.0",
+    "webpack": "^5.95.0",
     "webpack-cli": "^5.1.4",
     "webpack-remove-debug": "^0.1.0"
   },
@@ -20,6 +20,6 @@
     "watch-dts": "../node_modules/.bin/nodemon --watch src/public/types.ts --exec \"npm run dts\""
   },
   "dependencies": {
-    "socket.io-client": "^4.7.5"
+    "socket.io-client": "^4.8.0"
   }
 }
